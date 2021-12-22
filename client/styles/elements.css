@@ -1,0 +1,29 @@
+
+.button {
+    min-width: 85px;
+    border: 1px solid black;
+    font-size: 0.75em;
+    padding: 0.75em 2em;
+    cursor: pointer;
+}
+.button-reg {
+    width: 200px;
+    height: 100px;
+    margin: 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 0.6em;
+    padding: 0.75em 2em;
+    cursor: pointer;
+}
+
+.orange {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.white {
+    background-color: #fff;
+    color: var(--main-color);
+    border:  1px solid var(--main-color);
+}
