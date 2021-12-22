@@ -1,23 +1,18 @@
 import express from "express";
 import {createConnection} from "mysql2/promise";
 import {config} from "dotenv";
+import { mysqlConfig } from "./utils/config.js";
 import User from "./models/User.js";
 import Group from "./models/Group.js";
 import Bill from "./models/Bill.js";
 import Account from "./models/Account.js";
+import userRouter from "./routes/user.js";
 
 config();
 
 const main = async () => {
-	const {MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PW, MYSQL_DB} = process.env;
 
-	const connection = await createConnection({
-		host: MYSQL_HOST,
-		port: MYSQL_PORT,
-		user: MYSQL_USER,
-		password: MYSQL_PW,
-		database: MYSQL_DB,
-	});
+	const connection = await createConnection(mysqlConfig);
 
 	await User.init();
 	await Group.init();
@@ -27,6 +22,8 @@ const main = async () => {
 	const app = express();
 
 	app.use(express.json());
+
+	app.use("/users", userRouter);
 
 	app.sql = connection;
 
