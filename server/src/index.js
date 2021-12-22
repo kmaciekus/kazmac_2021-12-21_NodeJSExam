@@ -7,29 +7,31 @@ import Group from "./models/Group.js";
 import Bill from "./models/Bill.js";
 import Account from "./models/Account.js";
 import userRouter from "./routes/user.js";
+import accountRouter from "./routes/account.js";
 
 config();
 
 const main = async () => {
 
-	const connection = await createConnection(mysqlConfig);
+    const connection = await createConnection(mysqlConfig);
 
-	await User.init();
-	await Group.init();
-	await Bill.init();
-	await Account.init();
+    await User.init();
+    await Group.init();
+    await Bill.init();
+    await Account.init();
 
-	const app = express();
+    const app = express();
 
-	app.use(express.json());
+    app.use(express.json());
 
-	app.use("/users", userRouter);
+    app.use("/users", userRouter);
+    app.use("/accounts", accountRouter);
 
-	app.sql = connection;
+    app.sql = connection;
 
-	app.listen(8080, () => {
-		console.log("http://localhost:8080");
-	});
+    app.listen(8080, () => {
+        console.log("http://localhost:8080");
+    });
 };
 
 main();
