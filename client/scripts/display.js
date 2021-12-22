@@ -57,7 +57,13 @@ import { tableBody } from "./variables.js";
 //     buttonElements.append(viewButton, deleteButton);
 //     return buttonElements;
 // };
-
+const getGroupId = (event) => {
+    const groupId = event.currentTarget.id;
+    const groupName = event.currentTarget.children[1].innerHTML;
+    window.sessionStorage.setItem("groupId", groupId);
+    window.sessionStorage.setItem("groupName", groupName);
+    window.location.pathname = "client/bills.html";
+}
 
 const createCard = (groupId, groupName) => {
     const card = document.createElement("div");
@@ -68,7 +74,9 @@ const createCard = (groupId, groupName) => {
     const name = document.createElement("p");
     name.innerText=groupName;
     card.append(id, name);
-    card.addEventListener("click", getGroupId(e));
+    card.addEventListener("click", (e) => {
+        getGroupId(e);
+    });
     return card;
 }
     
@@ -91,7 +99,7 @@ const createTRow = (id, description, amount) => {
     const billdescription = document.createElement("td");
     billdescription.innerHTML = description;
     const billamount = document.createElement("td");
-    billamount.innerHTML = amount;
+    billamount.innerHTML = `$ ${amount}`;
     tRow.append(billId, billdescription, billamount);
     return tRow;
 }
@@ -102,7 +110,7 @@ export const displayBills = (list) => {
     }
     tableBody.innerHTML = "";
     const rows = list.map(element => {
-        return createTRow(element.groupId, element.groupName);
+        return createTRow(element.id, element.description, element.amount);
     });
     tableBody.append(...rows);
 }
@@ -128,11 +136,7 @@ export const displayBills = (list) => {
 //     });
 //     cardWrapperLogs.append(...cards);
 // };
-const getGroupId = (event) => {
-    const groupId = event.target.id;
-    window.sessionStorage.setItem("groupId", groupId);
-    window.location.pathname = "client/bills.html";
-}
+
 
 export const getAndDisplayGroups = async (token) => {
     try {

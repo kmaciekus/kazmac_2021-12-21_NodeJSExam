@@ -102,3 +102,19 @@
 .is-hidden {
     display: none;
 }
+
+table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+td{
+    padding: 5px;
+}
+tbody{
+    text-align: center;
+}
+
+tbody tr:nth-of-type(odd){
+    background-color: lightgray;
+}

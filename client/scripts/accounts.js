@@ -1,16 +1,20 @@
-import { displayGroups } from "./display.js";
-import { getData } from "./fetch.js";
-import { URL_ACCOUNTS } from "./variables.js";
+import { displayBills, displayGroups } from "./display.js";
+import { getData, addItemObject } from "./fetch.js";
+import { URL_ACCOUNTS, addGroupForm } from "./variables.js";
+const token = sessionStorage.getItem("token");
 const main = async() => {
-    const token = sessionStorage.getItem("token");
     try {
         const {groups} = await getData(URL_ACCOUNTS, token);
-        console.log(groups)
         displayGroups(groups);
-        console.log(document.getElementById("5").id)
     } catch (error) {
         console.log(error);
     }
 }
 
+addGroupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await addItemObject(addGroupForm, URL_ACCOUNTS, token);
+    addGroupForm.reset();
+    main();
+});
 main();
