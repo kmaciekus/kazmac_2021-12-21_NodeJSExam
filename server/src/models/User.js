@@ -8,6 +8,39 @@ export default class User {
 		this.password = password;
 	}
 
+	static async create({fullname, email, password}) {
+		try {
+			const connection = await getConnection();
+			const query = `
+			INSERT INTO users (fullname, email, password)
+			VALUES (?, ?, ?)`;
+
+			const [{insertId}] = await connection.query(query, [fullname, email, password]);
+
+			return new User ({id: insertId, fullname, email, password});
+		} catch (error) {
+			console.log("Couldn't create user", error);
+			throw error;
+		}
+	}
+
+	static async oneByEmail(email) {
+		try {
+			const connection = await getConnection();
+			const query = `
+			SELECT * FROM users WHERE email = ?`;
+			const [data] = await connection.query(query, [email]);
+			const [user] = data;
+			
+			if (!user) return null;
+
+			return new User({...user});
+		} catch (error) {
+			console.log(`Couldn't get user with email: ${email}`, error);
+			throw error;
+		}
+	}
+
 	static async init() {
 		try {
 			const connection = await getConnection();
@@ -29,5 +62,7 @@ export default class User {
 			throw error;
 		}
 	}
+
+	
 }
 
