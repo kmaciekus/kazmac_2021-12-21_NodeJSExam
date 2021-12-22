@@ -10,3 +10,4 @@ export const registrationForm = document.getElementById("registration");
 export const addGroupForm = document.getElementById("addGroup");
 export const cardWrapper = document.getElementById("cardWrapper");
 //--------------------------bills--------------------------------
+export const tableBody = document.getElementById("tableBody");

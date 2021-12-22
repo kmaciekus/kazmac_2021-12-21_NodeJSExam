@@ -5,5 +5,5 @@ import { registrationForm, URL_USERS } from "../scripts/variables.js";
 registrationForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     await addItemObject(registrationForm, `${URL_USERS}/register`);
-    window.location.pathname = "client/index.html"
+    window.location.pathname = "client/index.html";
 })

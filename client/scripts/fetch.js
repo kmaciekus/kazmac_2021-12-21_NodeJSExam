@@ -11,7 +11,7 @@ export const getData = async (URL, token) => {
         });
         // console.log(data);
         if (data.status === 403) {
-            window.location = "http://127.0.0.1:5501/client/register.html";
+            window.location.pathname = "client/index.html";
         }
         const dataJSON = data.json();
         return dataJSON;

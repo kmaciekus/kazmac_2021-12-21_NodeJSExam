@@ -58,6 +58,7 @@
     border: var(--border-style);
     border-radius: var(--border-radius);
     text-align: center;
+    cursor: pointer;
 }
 
 .card h4 , p {
