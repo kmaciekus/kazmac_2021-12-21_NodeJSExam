@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import {createConnection} from "mysql2/promise";
 import {config} from "dotenv";
 import { mysqlConfig } from "./utils/config.js";
@@ -22,6 +23,7 @@ const main = async () => {
     await Account.init();
 
     const app = express();
+    app.use(cors());
 
     app.use(express.json());
 

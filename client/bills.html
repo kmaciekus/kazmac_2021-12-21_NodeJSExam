@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Bill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="./scripts/bills.js" defer type="module"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="./index.html"><img src="./images/logo.png" alt="logo"></a>
+        <p>Split Bill</p>
+    </header>
+    <div class="container">
+        <h3 id="billGroupTitle"></h3>
+    </div>
+    <table id="billsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <form action="" class="container" id="addBillForm">
+        <div class="form-field">
+            <h3>Add Bill</h3>
+        </div>
+        <div class="form-field">
+            <label for="amountInput">Amount</label>
+            <input type="number" name="amount" id="amountInput" step="0.01">
+        </div>
+        <div class="form-field">
+            <label for="descriptionBill">Description</label>
+            <input type="text" name="description" id="descriptionBill">
+        </div>
+        <div class="form-field is-hidden" id="groupIdInput">
+            <input type="number" name="groupId" value="" >
+        </div>
+        <div class="form-field buttons">
+            <div class="form-control">
+                <button type="submit" class="white button">Add</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

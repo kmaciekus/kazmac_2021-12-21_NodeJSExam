@@ -1,0 +1,8 @@
+:root {
+    --page-width: 80%;
+    --main-color: #222;
+    --font-color: #222;
+    /* rgba(177,184,188,255); */
+    --border-style: 1px solid rgba(200, 200, 200, 0.4);
+    --border-radius: 5px;
+}

@@ -1,0 +1,120 @@
+
+.navbar {
+    width: 80%;
+    margin: auto;
+    padding: 1em 1em 0 1em;
+}
+
+
+.header {
+    width: var(--page-width);
+    margin: auto;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.header a{
+    margin-bottom: 0.5em;
+}
+
+.container {
+    width: var(--page-width);
+    margin: auto;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em;
+    gap: 0.5em;
+    text-align: center;
+}
+.add-group{
+    width: 30%;
+    margin-top: 3em;
+}
+.link a{
+    text-decoration: none;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    width: 150px;
+    height: auto;
+    overflow: hidden;
+    border: var(--border-style);
+    border-radius: var(--border-radius);
+    text-align: center;
+    cursor: pointer;
+}
+
+.card h4 , p {
+    margin: 0;
+}
+
+.content-wrapper {
+    margin-bottom: 0.5em;
+}
+
+.button-wrapper{
+    display: flex;
+}
+
+.form-field {
+    width: 50%;
+    text-align: left;
+    
+}
+/* .form-field.buttons {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.form-field input, textarea, select {
+    width: 100%;
+    min-width: 200px;
+    padding: 0.5em;
+    border: 1px solid grey;
+    /* background-color: #eee; */
+    /* border-radius: 0.5em; */
+    overflow: hidden;
+    margin-top: 0.5em;
+}
+
+
+.form-control {
+    margin-top: 0.5em;
+}
+
+.is-hidden {
+    display: none;
+}
+
+table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+td{
+    padding: 5px;
+}
+tbody{
+    text-align: center;
+}
+
+tbody tr:nth-of-type(odd){
+    background-color: lightgray;
+}
