@@ -7,7 +7,8 @@ import Group from "./models/Group.js";
 import Bill from "./models/Bill.js";
 import Account from "./models/Account.js";
 import userRouter from "./routes/user.js";
-import accountRouter from "./routes/account.js";
+import accountsRouter from "./routes/accounts.js";
+import billsRouter from "./routes/bills.js";
 
 config();
 
@@ -25,7 +26,8 @@ const main = async () => {
     app.use(express.json());
 
     app.use("/users", userRouter);
-    app.use("/accounts", accountRouter);
+    app.use("/accounts", accountsRouter);
+    app.use("/bills", billsRouter);
 
     app.sql = connection;
 

@@ -11,14 +11,14 @@ export default class Account {
         try {
             const connection = await getConnection();
             const query = `
-			SELECT grp_tb.name as groupName
+			SELECT acc.id as accountId, grp_tb.id as groupId, grp_tb.name as groupName
 			FROM accounts AS acc
 				LEFT JOIN groups_tb AS grp_tb ON grp_tb.id = acc.group_id
 				WHERE acc.user_id = ?
 			`;
-            const [data] = await connection.query(query, [userId]);
-            if(!data) return null;
-            return data;
+            const [groups] = await connection.query(query, [userId]);
+            if(!groups) return null;
+            return groups;
 			
         } catch (error) {
             console.log("Couldn't find groups", error);
