@@ -1,6 +1,3 @@
-// import { errorDisplay, getAndDisplayPetData } from "./display.js";
-// import { URL_PET } from "./variables.js";
-
 export const getData = async (URL, token) => {
     try {
         const data = await fetch(URL, {
@@ -100,27 +97,3 @@ export const login = async (email, password, URL) => {
         console.error(error);
     }
 };
-
-// const updateItem = async (itemId, URL, token) => {
-//     const response = await fetch(`${URL}/${itemId}`, {
-//         method: 'DELETE',
-//         headers: {
-//             authorization: `Bearer ${token}`,
-//         },
-//     });
-
-//     const deleteJSON = await response.json();
-//     return deleteJSON;
-// };
-
-// export const archivePet = async (event) => {
-//     const petId = event.target.id;
-//     const token = sessionStorage.getItem("token");
-//     const yes = confirm(
-//         "Ar tikrai norite archivuoti pacientą?"
-//     )
-//     if (yes) {
-//         await updateItem(petId, URL_PET, token);
-//         await getAndDisplayPetData();
-//     }
-// };

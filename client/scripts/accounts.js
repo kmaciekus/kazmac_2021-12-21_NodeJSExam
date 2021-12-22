@@ -1,4 +1,4 @@
-import { displayBills, displayGroups } from "./display.js";
+import { displayGroups } from "./display.js";
 import { getData, addItemObject } from "./fetch.js";
 import { URL_ACCOUNTS, addGroupForm } from "./variables.js";
 const token = sessionStorage.getItem("token");
