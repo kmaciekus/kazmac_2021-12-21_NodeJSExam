@@ -13,4 +13,4 @@ export const cardWrapper = document.getElementById("cardWrapper");
 export const addBillForm = document.getElementById("addBillForm")
 export const tableBody = document.getElementById("tableBody");
 export const billGroupTitle = document.getElementById("billGroupTitle");
-export const groupIdInput = document.getElementById("groupIdInput").children[0];
+export const groupIdInput = document.getElementById("groupIdInput");

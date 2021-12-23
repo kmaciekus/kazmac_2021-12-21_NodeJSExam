@@ -4,7 +4,7 @@ import { displayBills } from "./display.js";
 const token = sessionStorage.getItem("token");
 const groupId = window.sessionStorage.getItem("groupId");
 const groupName = window.sessionStorage.getItem("groupName");
-groupIdInput.value = groupId;
+groupIdInput.children[0].value = groupId;
 const main = async() => {
     billGroupTitle.innerHTML=`${groupName}:`;
     try {
