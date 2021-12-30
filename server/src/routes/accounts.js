@@ -4,6 +4,7 @@ import { loggedInMiddleware } from "../middleware/loggedIn.js";
 import Group from "../models/Group.js";
 import Account from "../models/Account.js";
 import { sendError } from "../utils/error.js";
+import { validateErrorsMiddleware } from "../middleware/validateErrorsMiddleware.js";
 
 
 const router = Router();
@@ -26,7 +27,8 @@ router.get("/",
 
 router.post("/",
     loggedInMiddleware,
-    body("name").exists(),
+    body("name").exists().isString().notEmpty(),
+    validateErrorsMiddleware,
     async (req, res) => {
         const { name } = req.body;
         const { user_id } = req.token;

@@ -57,4 +57,13 @@ export const displayBills = (list) => {
     tableBody.append(...rows);
 }
 
+export const errorDisplay = (errors) => {
+    const errorList = errors.map((item) => {
+        console.log(item);
+        return `${item.param}: ${item.msg}`;
+    });
+    return errorList;
+};
+
+
 

@@ -3,6 +3,7 @@ import { body } from "express-validator";
 import { loggedInMiddleware } from "../middleware/loggedIn.js";
 import { sendError } from "../utils/error.js";
 import Bill from "../models/Bill.js";
+import { validateErrorsMiddleware } from "../middleware/validateErrorsMiddleware.js";
 
 const router = Router();
 
@@ -26,6 +27,7 @@ router.post("/",
     body(["groupId", "amount", "description"]).exists(),
     body("amount").isDecimal().isNumeric(),
     body("groupId").isInt(),
+    validateErrorsMiddleware,
     async (req, res) => {
         const {groupId, amount, description} = req.body;
         try {

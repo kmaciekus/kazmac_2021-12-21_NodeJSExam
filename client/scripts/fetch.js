@@ -1,3 +1,4 @@
+import { errorDisplay } from "./display.js";
 export const getData = async (URL, token) => {
     try {
         const data = await fetch(URL, {

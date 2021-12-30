@@ -17,6 +17,7 @@ const main = async() => {
 
 addBillForm.addEventListener("submit", async(e) => {
     e.preventDefault();
+    groupIdInput.children[0].value = groupId;
     await addItemObject(addBillForm, URL_BILLS, token);
     addBillForm.reset();
     main();

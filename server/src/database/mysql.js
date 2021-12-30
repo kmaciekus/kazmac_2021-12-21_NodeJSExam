@@ -4,6 +4,4 @@ import { mysqlConfig } from "../utils/config.js";
 
 config();
 
-
-export const getConnection = async () => 
-	mysql.createConnection( mysqlConfig);
+export const getConnection = async () => mysql.createConnection(mysqlConfig);
