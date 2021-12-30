@@ -32,7 +32,7 @@ const postNewItem = async (itemObject, URL, token) => {
             if (!response.ok) {
                 console.log(responseJSON)
                 throw new Error(errorDisplay(responseJSON.errors));
-    
+
             } else {
                 return alert("Successfully registered!");
             }
@@ -52,7 +52,6 @@ const postNewItem = async (itemObject, URL, token) => {
         });
         const responseJSON = await response.json();
         if (!response.ok) {
-            console.log(responseJSON)
             throw new Error(errorDisplay(responseJSON.errors));
 
         } else {
@@ -96,5 +95,6 @@ export const login = async (email, password, URL) => {
         // navigate("posts/posts");http://127.0.0.1:5501/client/accounts.html
     } catch (error) {
         console.error(error);
+        alert(error);
     }
 };

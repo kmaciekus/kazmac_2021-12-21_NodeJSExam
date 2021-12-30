@@ -13,7 +13,7 @@ config();
 const router = Router();
 
 router.post("/register",
-    body(["fullname", "email", "password"]).exists(),
+    body(["fullname", "email", "password"]).exists().notEmpty(),
     checkSchema(registrationSchema),
     validateErrorsMiddleware,
     async (req, res) => {

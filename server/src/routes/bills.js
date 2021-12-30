@@ -24,7 +24,7 @@ router.get("/:id",
 
 router.post("/",
     loggedInMiddleware,
-    body(["groupId", "amount", "description"]).exists(),
+    body(["groupId", "amount", "description"]).exists().notEmpty(),
     body("amount").isDecimal().isNumeric(),
     body("groupId").isInt(),
     validateErrorsMiddleware,
