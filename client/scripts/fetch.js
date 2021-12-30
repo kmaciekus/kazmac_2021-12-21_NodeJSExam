@@ -9,7 +9,7 @@ export const getData = async (URL, token) => {
         });
         // console.log(data);
         if (data.status === 403) {
-            window.location.pathname = "client/index.html";
+            window.location.pathname = "client/logIn.html";
         }
         const dataJSON = data.json();
         return dataJSON;
@@ -92,7 +92,7 @@ export const login = async (email, password, URL) => {
         if (data.error) throw new Error(data.error);
 
         sessionStorage.setItem("token", data.token);
-        window.location.pathname = "client/accounts.html"
+        window.location.pathname = "client/index.html"
         // navigate("posts/posts");http://127.0.0.1:5501/client/accounts.html
     } catch (error) {
         console.error(error);

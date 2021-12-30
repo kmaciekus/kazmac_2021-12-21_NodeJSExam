@@ -1,9 +1,20 @@
-import { URL_USERS, logInForm } from "./variables.js";
-import { login } from "./fetch.js";
-logInForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        console.log
-        const form = [...new FormData(logInForm)];
-        const {email, password} = Object.fromEntries(form);
-        await login(email, password, URL_USERS);
+import { displayGroups } from "./display.js";
+import { getData, addItemObject } from "./fetch.js";
+import { URL_ACCOUNTS, addGroupForm } from "./variables.js";
+const token = sessionStorage.getItem("token");
+const main = async() => {
+    try {
+        const {groups} = await getData(URL_ACCOUNTS, token);
+        displayGroups(groups);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+addGroupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await addItemObject(addGroupForm, URL_ACCOUNTS, token);
+    addGroupForm.reset();
+    main();
 });
+main();
